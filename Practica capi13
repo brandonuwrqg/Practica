@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Apuesta de las Piedras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-left: 20px;
+        }
+        .answer {
+            font-weight: bold;
+            margin-left: 40px;
+        }
+        .process {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>La Apuesta de las Piedras</h1>
+
+    <div class="section">
+        <h2>Ejemplo de la Apuesta</h2>
+        <p>En este escenario, el primer personaje tiene un número de piedras, y el segundo personaje debe adivinar cuántas piedras tiene haciendo preguntas sobre la cantidad. El primer personaje responde con "sí" o "no". Vamos a simular este proceso.</p>
+    </div>
+
+    <div class="section">
+        <h2>Preguntas y Respuestas</h2>
+        <p><strong>Pregunta 1:</strong> ¿Tienes más de 10 piedras?</p>
+        <p class="answer" id="answer1"></p>
+
+        <p><strong>Pregunta 2:</strong> ¿Tienes más de 15 piedras?</p>
+        <p class="answer" id="answer2"></p>
+
+        <p><strong>Pregunta 3:</strong> ¿Tienes más de 18 piedras?</p>
+        <p class="answer" id="answer3"></p>
+
+        <p><strong>Pregunta 4:</strong> ¿Tienes más de 19 piedras?</p>
+        <p class="answer" id="answer4"></p>
+    </div>
+
+    <div class="section">
+        <h2>Proceso de Deducción</h2>
+        <div class="process" id="deduction-process">
+            <p><strong>Proceso de deducción:</strong></p>
+            <ul id="deduction-list">
+                <li>Después de la primera pregunta: Puede haber entre 11 y 20 piedras.</li>
+                <li>Después de la segunda pregunta: Puede haber entre 16 y 20 piedras.</li>
+                <li>Después de la tercera pregunta: Puede haber entre 19 y 20 piedras.</li>
+                <li>Después de la cuarta pregunta: Solo puede haber 20 piedras.</li>
+            </ul>
+        </div>
+    </div>
+
+    <button onclick="startGame()">Iniciar Apuesta</button>
+
+    <script>
+        // El número de piedras que tiene el primer personaje
+        let piedras = 20;
+
+        // Función para empezar el juego y mostrar las respuestas
+        function startGame() {
+            // Inicializamos las respuestas
+            let answers = [
+                "Sí", // Pregunta 1
+                "Sí", // Pregunta 2
+                "Sí", // Pregunta 3
+                "No"  // Pregunta 4
+            ];
+
+            // Mostrar las respuestas en los elementos correspondientes
+            document.getElementById('answer1').textContent = answers[0];
+            document.getElementById('answer2').textContent = answers[1];
+            document.getElementById('answer3').textContent = answers[2];
+            document.getElementById('answer4').textContent = answers[3];
+
+            // Mostrar el proceso de deducción en la lista
+            let deductionList = document.getElementById('deduction-list');
+            deductionList.innerHTML = `
+                <li>Después de la primera pregunta: Puede haber entre 11 y 20 piedras.</li>
+                <li>Después de la segunda pregunta: Puede haber entre 16 y 20 piedras.</li>
+                <li>Después de la tercera pregunta: Puede haber entre 19 y 20 piedras.</li>
+                <li>Después de la cuarta pregunta: Solo puede haber 20 piedras.</li>
+            `;
+        }
+    </script>
+
+</body>
+</html>
